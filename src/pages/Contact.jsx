@@ -5,7 +5,7 @@ import { breadcrumbSchema, canonicalFor } from "../lib/seo";
 import { NAP, ORGANIZATION_ID } from "../data/site";
 import { submitForm } from "../lib/submitForm";
 import { STUDIO } from "../data/classes";
-import contacthero from "../assets/DAW-contact-hero.jpg";
+import contacthero from "../assets/DAW-contact-hero.webp";
 
 export default function Contact() {
   const [form, setForm] = useState({

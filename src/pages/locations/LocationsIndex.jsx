@@ -4,7 +4,7 @@ import { breadcrumbSchema, webPageSchema, canonicalFor } from "../../lib/seo";
 import { NAP, HOURS } from "../../data/site";
 import { STUDIO } from "../../data/classes";
 import { locations, locationPath } from "../../data/locations";
-import hero from "../../assets/DAW-group-photo.jpg";
+import hero from "../../assets/DAW-group-photo.webp";
 
 /*
  * The hub for the five service-area pages.

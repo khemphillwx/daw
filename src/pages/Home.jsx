@@ -5,10 +5,10 @@ import { SITE_URL, SITE_NAME, ORGANIZATION_ID } from "../data/site";
 import { STUDIO } from "../data/classes";
 import { locations, locationPath } from "../data/locations";
 // TODO: Swap `hero` for the studio's new homepage photo once supplied.
-import hero from "../assets/DAW-girls-outside.jpg";
-import kid from "../assets/DAW-kid-dance.jpg";
-import girlsoutside from "../assets/DAW-girls-outside.jpg";
-import group from "../assets/DAW-group-photo.jpg";
+import hero from "../assets/DAW-girls-outside.webp";
+import kid from "../assets/DAW-kid-dance.webp";
+import girlsoutside from "../assets/DAW-girls-outside.webp";
+import group from "../assets/DAW-group-photo.webp";
 
 const genres = [
   {

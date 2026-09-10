@@ -10,11 +10,11 @@ import { NAP, HOURS, SITE_URL, ORGANIZATION_ID } from "../../data/site";
 import { STUDIO } from "../../data/classes";
 import { locations, locationBySlug, locationPath } from "../../data/locations";
 
-import heroCarrollton from "../../assets/DAW-group-photo.jpg";
-import heroBremen from "../../assets/DAW-girls-outside.jpg";
-import heroVillaRica from "../../assets/DAW-girls-dance.jpg";
-import heroBowdon from "../../assets/DAW-happy-side.jpg";
-import heroTallapoosa from "../../assets/DAW-programs-hero.png";
+import heroCarrollton from "../../assets/DAW-group-photo.webp";
+import heroBremen from "../../assets/DAW-girls-outside.webp";
+import heroVillaRica from "../../assets/DAW-girls-dance.webp";
+import heroBowdon from "../../assets/DAW-happy-side.webp";
+import heroTallapoosa from "../../assets/DAW-programs-hero.webp";
 
 /* One hero per city so the five pages are not visually interchangeable. */
 const HEROES = {

@@ -4,7 +4,7 @@ import PageHero from "../components/ui/PageHero";
 import Seo from "../components/seo/Seo";
 import { faqSchema, breadcrumbSchema, webPageSchema } from "../lib/seo";
 import { STUDIO } from "../data/classes";
-import faqhero from "../assets/DAW-faq-hero.jpg";
+import faqhero from "../assets/DAW-faq-hero.webp";
 
 const faqs = [
   {

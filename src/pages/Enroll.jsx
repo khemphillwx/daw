@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import PageHero from '../components/ui/PageHero'
 import ClassListEmbed from '../components/ui/ClassListEmbed'
+import enrollhero from '../assets/DAW-group-photo.webp'
 import { submitForm } from '../lib/submitForm'
 
 import Seo from "../components/seo/Seo"
@@ -66,6 +67,7 @@ export default function Enroll() {
       />
 
       <PageHero
+        image={enrollhero}
         label="Get Started"
         heading="Enroll at Dance Academy West"
         subheading="Ready to join the DAW family? Enroll online through Studio Pro or fill out our interest form and we'll reach out to help."

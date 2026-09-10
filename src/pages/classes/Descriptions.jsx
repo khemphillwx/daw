@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import PageHero from "../../components/ui/PageHero";
 import { genres, STUDIO } from "../../data/classes";
-import classeshero from "../../assets/DAW-classes-hero.jpg";
+import classeshero from "../../assets/DAW-classes-hero.webp";
 
 import Seo from "../../components/seo/Seo";
 import { webPageSchema, breadcrumbSchema } from "../../lib/seo";

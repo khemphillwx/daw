@@ -1,16 +1,16 @@
-import ballet from "../assets/DAW-classes-ballet.jpeg";
-import hiphop from "../assets/DAW-classes-hiphop.png";
-import tap from "../assets/DAW-classes-tap.png";
-import jazz from "../assets/DAW-classes-jazz.png";
-import broadway from "../assets/DAW-classes-broadway.png";
-import acro from "../assets/DAW-classes-acrobatics.jpg";
-import creative from "../assets/DAW-classes-tinytots.png";
-import kiddance from "../assets/DAW-kid-dance.jpg";
-import acting from "../assets/DAW-classes-acting.jpg";
-import pom from "../assets/DAW-classes-dance-team-pom.jpg";
-import contemporary from "../assets/DAW-classes-contemporary-lyrical.jpg";
-import technique from "../assets/DAW-classes-ballet-technique.jpg";
-import twirl from "../assets/DAW-classes-twirl-groove.jpg";
+import ballet from "../assets/DAW-classes-ballet.webp";
+import hiphop from "../assets/DAW-classes-hiphop.webp";
+import tap from "../assets/DAW-classes-tap.webp";
+import jazz from "../assets/DAW-classes-jazz.webp";
+import broadway from "../assets/DAW-classes-broadway.webp";
+import acro from "../assets/DAW-classes-acrobatics.webp";
+import creative from "../assets/DAW-classes-tinytots.webp";
+import kiddance from "../assets/DAW-kid-dance.webp";
+import acting from "../assets/DAW-classes-acting.webp";
+import pom from "../assets/DAW-classes-dance-team-pom.webp";
+import contemporary from "../assets/DAW-classes-contemporary-lyrical.webp";
+import technique from "../assets/DAW-classes-ballet-technique.webp";
+import twirl from "../assets/DAW-classes-twirl-groove.webp";
 
 /*
  * Shared class data. Consumed by:

@@ -18,12 +18,21 @@ export default function PageHero({
 }) {
   return (
     <section className="relative pt-36 pb-20 px-6 md:px-12 overflow-hidden">
-      <img
-        src={image}
-        alt={imageAlt}
-        aria-hidden={imageAlt ? undefined : "true"}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full object-cover opacity-10"
-      />
+      {/*
+        Guarded because `image` is optional. Rendering <img src={undefined}>
+        emits a real <img> with no src — the browser reports it as a broken
+        image and it counts as a failed resource on the page.
+      */}
+      {image && (
+        <img
+          src={image}
+          alt={imageAlt}
+          aria-hidden={imageAlt ? undefined : "true"}
+          loading="lazy"
+          decoding="async"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full object-cover opacity-10"
+        />
+      )}
       {/* Aurora orbs */}
       <div
         className={`aurora-orb w-96 h-96 ${orb1Color} -top-24 -right-24 opacity-25`}

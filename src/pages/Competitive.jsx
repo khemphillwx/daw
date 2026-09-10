@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import PageHero from '../components/ui/PageHero'
+import comphero from '../assets/DAW-classes-dance-team-pom.webp'
 
 import Seo from "../components/seo/Seo"
 import { webPageSchema, breadcrumbSchema } from "../lib/seo"
@@ -62,6 +63,7 @@ export default function Competitive() {
       />
 
       <PageHero
+        image={comphero}
         label="Competition Team"
         heading="Dance at the Next Level"
         subheading="For dedicated dancers who are ready to push their craft, compete, and represent Dance Academy West on a bigger stage."
