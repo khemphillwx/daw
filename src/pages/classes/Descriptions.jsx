@@ -1,11 +1,32 @@
 import { Link } from "react-router-dom";
 import PageHero from "../../components/ui/PageHero";
 import { genres, STUDIO } from "../../data/classes";
-import classeshero from "../../assets/DAW-classes-hero.jpg";
+import classeshero from "../../assets/DAW-classes-hero.webp";
+
+import Seo from "../../components/seo/Seo";
+import { webPageSchema, breadcrumbSchema } from "../../lib/seo";
 
 export default function Descriptions() {
   return (
     <>
+      <Seo
+        title="Dance Class Descriptions — Ballet, Tap, Jazz, Hip Hop & More"
+        description="What's taught in every class at Dance Academy West in Carrollton, GA: age ranges, technique covered and required attire, from Tiny Tots through advanced ballet."
+        path="/classes/descriptions"
+        schema={[
+          webPageSchema({
+            name: "Dance Class Descriptions — Ballet, Tap, Jazz, Hip Hop & More",
+            description: "What's taught in every class at Dance Academy West in Carrollton, GA: age ranges, technique covered and required attire, from Tiny Tots through advanced ballet.",
+            path: "/classes/descriptions",
+          }),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Classes", path: "/classes/schedule" },
+            { name: "Class Descriptions", path: "/classes/descriptions" },
+          ])
+        ]}
+      />
+
       <PageHero
         image={classeshero}
         label="Classes"

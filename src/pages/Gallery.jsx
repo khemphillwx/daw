@@ -1,22 +1,25 @@
 import { useState, useEffect, useCallback } from "react";
 import PageHero from "../components/ui/PageHero";
-import gallery1 from "../assets/gallery/DAW-gallery-1.jpg";
-import gallery2 from "../assets/gallery/DAW-gallery-2.jpg";
-import gallery3 from "../assets/gallery/DAW-gallery-3.jpg";
-import gallery4 from "../assets/gallery/DAW-gallery-4.jpg";
-import gallery5 from "../assets/gallery/DAW-gallery-5.jpg";
-import gallery6 from "../assets/gallery/DAW-gallery-6.jpg";
-import gallery7 from "../assets/gallery/DAW-gallery-7.jpg";
-import gallery8 from "../assets/gallery/DAW-gallery-8.jpg";
-import gallery9 from "../assets/gallery/DAW-gallery-9.jpg";
-import gallery10 from "../assets/gallery/DAW-gallery-10.jpg";
-import gallery11 from "../assets/gallery/DAW-gallery-11.jpg";
-import gallery12 from "../assets/gallery/DAW-gallery-12.jpg";
-import gallery13 from "../assets/gallery/DAW-gallery-13.jpg";
-import gallery14 from "../assets/gallery/DAW-gallery-14.jpg";
-import gallery15 from "../assets/gallery/DAW-gallery-15.jpg";
-import gallery16 from "../assets/gallery/DAW-gallery-16.jpg";
-import galleryhero from "../assets/DAW-gallery-hero.jpg";
+import gallery1 from "../assets/gallery/DAW-gallery-1.webp";
+import gallery2 from "../assets/gallery/DAW-gallery-2.webp";
+import gallery3 from "../assets/gallery/DAW-gallery-3.webp";
+import gallery4 from "../assets/gallery/DAW-gallery-4.webp";
+import gallery5 from "../assets/gallery/DAW-gallery-5.webp";
+import gallery6 from "../assets/gallery/DAW-gallery-6.webp";
+import gallery7 from "../assets/gallery/DAW-gallery-7.webp";
+import gallery8 from "../assets/gallery/DAW-gallery-8.webp";
+import gallery9 from "../assets/gallery/DAW-gallery-9.webp";
+import gallery10 from "../assets/gallery/DAW-gallery-10.webp";
+import gallery11 from "../assets/gallery/DAW-gallery-11.webp";
+import gallery12 from "../assets/gallery/DAW-gallery-12.webp";
+import gallery13 from "../assets/gallery/DAW-gallery-13.webp";
+import gallery14 from "../assets/gallery/DAW-gallery-14.webp";
+import gallery15 from "../assets/gallery/DAW-gallery-15.webp";
+import gallery16 from "../assets/gallery/DAW-gallery-16.webp";
+import galleryhero from "../assets/DAW-gallery-hero.webp";
+
+import Seo from "../components/seo/Seo";
+import { webPageSchema, breadcrumbSchema } from "../lib/seo";
 
 const photos = [
   { id: 1, src: gallery1, alt: "Dance Academy West" },
@@ -63,6 +66,23 @@ export default function Gallery() {
 
   return (
     <>
+      <Seo
+        title="Photo Gallery | Dance Academy West, Carrollton GA"
+        description="Recitals, classes, competitions and community performances — photos from 25 seasons at Dance Academy West in Carrollton, Georgia."
+        path="/gallery"
+        schema={[
+          webPageSchema({
+            name: "Photo Gallery | Dance Academy West, Carrollton GA",
+            description: "Recitals, classes, competitions and community performances — photos from 25 seasons at Dance Academy West in Carrollton, Georgia.",
+            path: "/gallery",
+          }),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Gallery", path: "/gallery" },
+          ])
+        ]}
+      />
+
       <PageHero
         image={galleryhero}
         label="Photos & Videos"
@@ -86,12 +106,13 @@ export default function Gallery() {
           <div className="glass-card rounded-3xl overflow-hidden aspect-video max-w-4xl mx-auto mb-20 flex items-center justify-center bg-slate-100/60">
             <div className="w-full h-full">
               <iframe
+                title="Dance Academy West studio video"
                 width="100%"
                 height="100%"
                 frameBorder="0"
                 loading="lazy"
                 src="https://www.canva.com/design/DAHGYQ1yOiw/czrAzPfutgDe3woxuh7s-g/watch?embed"
-                allowfullscreen="allowfullscreen"
+                allowFullScreen
                 allow="fullscreen"
               ></iframe>
             </div>

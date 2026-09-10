@@ -1,1 +1,15 @@
-/*    /index.html   200
+# Netlify fallback rules.
+#
+# The build prerenders every indexable route to its own HTML file, so there is
+# deliberately no `/*  /index.html  200` catch-all here any more. That rule
+# used to answer every dead URL with the homepage at HTTP 200, which Search
+# Console records as a soft 404 against the homepage.
+#
+# Netlify serves 404.html with a real 404 status for unmatched paths on its
+# own, so unknown URLs now behave correctly with no rule at all.
+#
+# Legacy paths from the previous site, kept as permanent redirects so any
+# existing inbound links and their accumulated authority carry over.
+/policies      /info/policies     301
+/competitive   /competition-team  301
+/locations     /dance-classes     301

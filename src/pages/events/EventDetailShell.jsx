@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import PageHero from "../../components/ui/PageHero";
 import { STUDIO } from "../../data/classes";
-import eventshero from "../../assets/DAW-events-hero.jpg";
+import eventshero from "../../assets/DAW-events-hero.webp";
 
 /*
  * Shared shell for event pages whose copy and photos have not been supplied

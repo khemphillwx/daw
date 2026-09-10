@@ -1,5 +1,9 @@
 import { Link } from 'react-router-dom'
 import PageHero from '../components/ui/PageHero'
+import comphero from '../assets/DAW-classes-dance-team-pom.webp'
+
+import Seo from "../components/seo/Seo"
+import { webPageSchema, breadcrumbSchema } from "../lib/seo"
 
 const teams = [
   {
@@ -41,7 +45,25 @@ const highlights = [
 export default function Competitive() {
   return (
     <>
+      <Seo
+        title="Competition Dance Team | Dance Academy West, Carrollton GA"
+        description="Competitive dance training in Carrollton, GA for dancers ready to push further — auditions, commitment, travel and what joining the team involves."
+        path="/competition-team"
+        schema={[
+          webPageSchema({
+            name: "Competition Dance Team | Dance Academy West, Carrollton GA",
+            description: "Competitive dance training in Carrollton, GA for dancers ready to push further — auditions, commitment, travel and what joining the team involves.",
+            path: "/competition-team",
+          }),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Competition Team", path: "/competition-team" },
+          ])
+        ]}
+      />
+
       <PageHero
+        image={comphero}
         label="Competition Team"
         heading="Dance at the Next Level"
         subheading="For dedicated dancers who are ready to push their craft, compete, and represent Dance Academy West on a bigger stage."

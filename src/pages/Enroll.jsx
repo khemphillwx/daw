@@ -2,7 +2,11 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import PageHero from '../components/ui/PageHero'
 import ClassListEmbed from '../components/ui/ClassListEmbed'
+import enrollhero from '../assets/DAW-group-photo.webp'
 import { submitForm } from '../lib/submitForm'
+
+import Seo from "../components/seo/Seo"
+import { webPageSchema, breadcrumbSchema } from "../lib/seo"
 
 const steps = [
   { n: '1', title: 'Choose a Program',   desc: 'Start with a free trial class, or go straight into the year-round Progressive Program.' },
@@ -45,7 +49,25 @@ export default function Enroll() {
 
   return (
     <>
+      <Seo
+        title="Enroll in Dance Classes | Dance Academy West, Carrollton GA"
+        description="Register for dance classes at Dance Academy West in Carrollton, GA. Browse open classes, enroll online, or send us an interest form and we'll help you choose."
+        path="/enroll"
+        schema={[
+          webPageSchema({
+            name: "Enroll in Dance Classes | Dance Academy West, Carrollton GA",
+            description: "Register for dance classes at Dance Academy West in Carrollton, GA. Browse open classes, enroll online, or send us an interest form and we'll help you choose.",
+            path: "/enroll",
+          }),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Enroll", path: "/enroll" },
+          ])
+        ]}
+      />
+
       <PageHero
+        image={enrollhero}
         label="Get Started"
         heading="Enroll at Dance Academy West"
         subheading="Ready to join the DAW family? Enroll online through Studio Pro or fill out our interest form and we'll reach out to help."

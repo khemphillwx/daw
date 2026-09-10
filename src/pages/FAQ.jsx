@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import PageHero from "../components/ui/PageHero";
+import Seo from "../components/seo/Seo";
+import { faqSchema, breadcrumbSchema, webPageSchema } from "../lib/seo";
 import { STUDIO } from "../data/classes";
-import faqhero from "../assets/DAW-faq-hero.jpg";
+import faqhero from "../assets/DAW-faq-hero.webp";
 
 const faqs = [
   {
@@ -57,6 +59,7 @@ function FAQItem({ q, a }) {
     <div className="glass-card rounded-2xl overflow-hidden">
       <button
         onClick={() => setOpen((o) => !o)}
+        aria-expanded={open}
         className="w-full flex items-center justify-between gap-4 px-7 py-5 text-left hover:bg-white/40 transition-colors duration-200"
       >
         <span className="font-display font-bold text-slate-900 text-base leading-snug">
@@ -68,11 +71,21 @@ function FAQItem({ q, a }) {
           +
         </span>
       </button>
-      {open && (
-        <div className="px-7 pb-6 text-slate-600 text-sm leading-relaxed border-t border-slate-100">
-          <p className="pt-4">{a}</p>
-        </div>
-      )}
+      {/*
+        Rendered always and hidden with an attribute rather than mounted on
+        open. Google allows FAQ answers to sit behind an expander, but the
+        text has to exist in the HTML — conditional mounting left it out of
+        the document entirely, so the FAQPage markup below would have
+        described content that was not on the page. Keeping it mounted also
+        means the prerendered HTML carries all eleven answers, which is what
+        crawlers and assistants actually read.
+      */}
+      <div
+        hidden={!open}
+        className="px-7 pb-6 text-slate-600 text-sm leading-relaxed border-t border-slate-100"
+      >
+        <p className="pt-4">{a}</p>
+      </div>
     </div>
   );
 }
@@ -80,6 +93,27 @@ function FAQItem({ q, a }) {
 export default function FAQ() {
   return (
     <>
+      <Seo
+        title="Dance Class FAQ | Dance Academy West, Carrollton GA"
+        description="Starting age, free trials, tuition, dress code, recitals and registration — what Carrollton-area parents ask most before enrolling at Dance Academy West."
+        path="/faq"
+        schema={[
+          webPageSchema({
+            name: "Dance Class FAQ | Dance Academy West, Carrollton GA",
+            description:
+              "Answers to the questions parents most often ask before enrolling at Dance Academy West in Carrollton, Georgia.",
+            path: "/faq",
+          }),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "FAQ", path: "/faq" },
+          ]),
+          /* Built from the same `faqs` array the page renders, so the markup
+           * and the visible answers cannot drift apart. */
+          faqSchema(faqs),
+        ]}
+      />
+
       <PageHero
         image={faqhero}
         label="Got Questions?"

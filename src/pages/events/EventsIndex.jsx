@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import PageHero from "../../components/ui/PageHero";
 import { STUDIO } from "../../data/classes";
-import eventshero from "../../assets/DAW-events-hero.jpg";
+import eventshero from "../../assets/DAW-events-hero.webp";
+
+import Seo from "../../components/seo/Seo";
+import { webPageSchema, breadcrumbSchema } from "../../lib/seo";
 
 const featured = [
   {
@@ -59,6 +62,23 @@ const alsoHappening = [
 export default function Events() {
   return (
     <>
+      <Seo
+        title="Studio Events & Performances | Dance Academy West, Carrollton"
+        description="The Carrollton Christmas Parade, Mayfest and our summer recital production — where Dance Academy West dancers perform for the west Georgia community each year."
+        path="/events"
+        schema={[
+          webPageSchema({
+            name: "Studio Events & Performances | Dance Academy West, Carrollton",
+            description: "The Carrollton Christmas Parade, Mayfest and our summer recital production — where Dance Academy West dancers perform for the west Georgia community each year.",
+            path: "/events",
+          }),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Events", path: "/events" },
+          ])
+        ]}
+      />
+
       <PageHero
         image={eventshero}
         label="Events & Performances"
