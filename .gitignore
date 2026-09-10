@@ -1,5 +1,8 @@
 node_modules
 dist
+# Intermediate SSR bundle, produced by `npm run build:ssr` purely so the
+# prerender step can import the app. Never deployed.
+dist-ssr
 .vercel
 
 # Secrets — never commit. .env.example documents the required keys.

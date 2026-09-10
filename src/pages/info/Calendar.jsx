@@ -2,6 +2,9 @@ import { Link } from "react-router-dom";
 import PageHero from "../../components/ui/PageHero";
 import eventshero from "../../assets/DAW-events-hero.jpg";
 
+import Seo from "../../components/seo/Seo";
+import { webPageSchema, breadcrumbSchema } from "../../lib/seo";
+
 /*
  * Season dates are not yet supplied by the studio — the calendar embed below is
  * a placeholder. The "Key Dates" list holds only recurring deadlines that are
@@ -46,6 +49,24 @@ const keyDates = [
 export default function Calendar() {
   return (
     <>
+      <Seo
+        title="Studio Calendar & Key Dates | Dance Academy West, Carrollton"
+        description="Term dates, holiday closures, recital week and registration deadlines for the current season at Dance Academy West in Carrollton, Georgia."
+        path="/info/calendar"
+        schema={[
+          webPageSchema({
+            name: "Studio Calendar & Key Dates | Dance Academy West, Carrollton",
+            description: "Term dates, holiday closures, recital week and registration deadlines for the current season at Dance Academy West in Carrollton, Georgia.",
+            path: "/info/calendar",
+          }),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Important Info", path: "/info/tuition" },
+            { name: "Calendar", path: "/info/calendar" },
+          ])
+        ]}
+      />
+
       <PageHero
         image={eventshero}
         label="Important Info"

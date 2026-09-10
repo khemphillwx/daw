@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 import ClassListEmbed from "../components/ui/ClassListEmbed";
+import Seo from "../components/seo/Seo";
+import { SITE_URL, SITE_NAME, ORGANIZATION_ID } from "../data/site";
 import { STUDIO } from "../data/classes";
+import { locations, locationPath } from "../data/locations";
 // TODO: Swap `hero` for the studio's new homepage photo once supplied.
 import hero from "../assets/DAW-girls-outside.jpg";
 import kid from "../assets/DAW-kid-dance.jpg";
@@ -34,41 +37,46 @@ const genres = [
   },
 ];
 
+/*
+ * Real reviews from real families. They previously carried avatar images
+ * pulled from picsum.photos — random stock photographs of strangers, shown
+ * beside named parents' quotes. That reads as a photo of the reviewer, which
+ * it is not, so the avatars are now the reviewer's initials instead.
+ *
+ * Deliberately no AggregateRating schema anywhere on the site: Google does not
+ * allow a business to mark up reviews it has collected about itself on its own
+ * pages, and doing it anyway risks a structured-data manual action.
+ */
 const testimonials = [
   {
     name: "Nicole E.",
     role: "Mom of Olivia & Aiden",
     quote:
       "Being a part of the Dance Academy West family has been such a joy! We can't imagine being a part of any other studio!",
-    avatar: "https://picsum.photos/seed/nicole-e/80/80",
   },
   {
     name: "Jaleen W.",
     role: "Mom of Kennedy",
     quote:
       "My daughter has been dancing at DAW for 3 years now and we have loved every single minute of it. We WILL not dance anywhere else. We love our Dance Academy West family!!!",
-    avatar: "https://picsum.photos/seed/jaleen-w/80/80",
   },
   {
     name: "Brittany S.",
     role: "Mom of Lily",
     quote:
       "Dance Academy West is a fun and welcoming dance studio. The instructors and students are encouraging. Thanks DAW for providing my daughter with a loving and professional dance experience!",
-    avatar: "https://picsum.photos/seed/brittany-s/80/80",
   },
   {
     name: "Zoey",
     role: "DAW Student, Age 8",
     quote:
       "It feels like joy to me. I'm comfortable with my dance instructors and love how they encourage me. I love my dance sisters and have more friends than ever before. I feel like I can do anything...",
-    avatar: "https://picsum.photos/seed/zoey-8/80/80",
   },
   {
     name: "Jennifer A.",
     role: "Mom of Addison & Blakely",
     quote:
       "Our girls have loved every minute at DAW! The teachers are so loving, caring, and so knowledgeable. DAW quickly grew into part of our family.",
-    avatar: "https://picsum.photos/seed/jennifer-a/80/80",
   },
 ];
 
@@ -82,6 +90,40 @@ const stats = [
 export default function Home() {
   return (
     <>
+      {/*
+        The homepage carries the head term — "dance classes in Carrollton, GA"
+        — because it is the strongest page on the domain and the one Google
+        already trusts. /dance-classes/carrollton-ga deliberately targets the
+        narrower visit-intent phrasing instead, so the two support each other
+        rather than compete for the same query.
+      */}
+      <Seo
+        title="Dance Classes in Carrollton, GA | Ages 2–18 | Dance Academy West"
+        description="Dance Academy West is Carrollton's studio for ballet, tap, jazz, hip hop, acro and competition dance, ages 2–18. 25 seasons in west Georgia. Free trial class."
+        path="/"
+        schema={[
+          {
+            "@type": "WebSite",
+            "@id": `${SITE_URL}/#website`,
+            url: SITE_URL,
+            name: SITE_NAME,
+            publisher: { "@id": ORGANIZATION_ID },
+            inLanguage: "en-US",
+          },
+          {
+            "@type": "WebPage",
+            "@id": `${SITE_URL}/#webpage`,
+            url: `${SITE_URL}/`,
+            name: "Dance Classes in Carrollton, GA | Dance Academy West",
+            description:
+              "Ballet, tap, jazz, hip hop, Broadway, acrobatics and competition dance for ages 2–18 at Dance Academy West in Carrollton, Georgia.",
+            about: { "@id": ORGANIZATION_ID },
+            isPartOf: { "@id": `${SITE_URL}/#website` },
+            inLanguage: "en-US",
+          },
+        ]}
+      />
+
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
         {/* Aurora orbs */}
@@ -355,11 +397,15 @@ export default function Home() {
                     {t.quote}
                   </p>
                   <div className="flex items-center gap-3">
-                    <img
-                      src={t.avatar}
-                      alt={t.name}
-                      className="w-11 h-11 rounded-full object-cover shrink-0 ring-2 ring-brand/30"
-                    />
+                    <div
+                      aria-hidden="true"
+                      className="w-11 h-11 rounded-full shrink-0 ring-2 ring-brand/30 bg-brand/15 flex items-center justify-center font-display font-bold text-brand-dark text-sm"
+                    >
+                      {t.name
+                        .split(" ")
+                        .map((part) => part[0])
+                        .join("")}
+                    </div>
                     <div>
                       <div className="font-display font-bold text-slate-900">
                         {t.name}
@@ -372,6 +418,54 @@ export default function Home() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Service area ─────────────────────────────────────── */}
+      {/*
+        Names the towns we serve on the homepage itself, and links each one to
+        its page. Two things happen here: a parent in Bremen sees their own
+        town on the page they landed on, and the five location pages get an
+        internal link from the strongest page on the domain.
+      */}
+      <section className="bg-slate-50 section-pad relative overflow-hidden">
+        <div className="aurora-orb w-[420px] h-[420px] bg-aurora-cyan opacity-12 -top-24 -right-24" />
+
+        <div className="max-w-7xl mx-auto relative">
+          <div className="text-center mb-12">
+            <p className="section-label mb-3">Where Our Dancers Come From</p>
+            <h2 className="section-heading">Serving West Georgia</h2>
+            <p className="text-slate-600 mt-4 max-w-2xl mx-auto">
+              One studio on Bankhead Highway, dancers from all across Carroll
+              and Haralson counties. Find the drive time and directions from
+              your town.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
+            {locations.map((l) => (
+              <Link
+                key={l.slug}
+                to={locationPath(l.slug)}
+                className="bg-white/80 glass-card rounded-2xl p-6 text-center hover:shadow-md hover:-translate-y-1 transition-all duration-200"
+              >
+                <h3 className="font-display font-bold text-slate-900 mb-1">
+                  {l.city}, {l.state}
+                </h3>
+                <p className="text-slate-500 text-xs leading-relaxed">
+                  {l.drive
+                    ? `${l.drive.minutes} min · ${l.drive.miles} miles`
+                    : "Our home studio"}
+                </p>
+              </Link>
+            ))}
+          </div>
+
+          <div className="text-center mt-10">
+            <Link to="/dance-classes" className="btn-secondary">
+              See All Areas We Serve
+            </Link>
           </div>
         </div>
       </section>

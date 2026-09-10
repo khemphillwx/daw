@@ -4,6 +4,9 @@ import ClassListEmbed from "../../components/ui/ClassListEmbed";
 import { STUDIO } from "../../data/classes";
 import classeshero from "../../assets/DAW-classes-hero.jpg";
 
+import Seo from "../../components/seo/Seo";
+import { webPageSchema, breadcrumbSchema } from "../../lib/seo";
+
 /*
  * Level bands read off the live Studio Pro class list. Verify with the studio
  * before launch — Jr. 3 never appears on its own, only paired with Jr. 2.
@@ -57,6 +60,24 @@ const coRequisites = [
 export default function ChoosingAClass() {
   return (
     <>
+      <Seo
+        title="How to Choose Your Child's First Dance Class | Carrollton, GA"
+        description="An age-by-age guide to picking a first dance class, ages 2 to 18. Filter by your child's age and see what each genre involves before you enroll."
+        path="/classes/choosing"
+        schema={[
+          webPageSchema({
+            name: "How to Choose Your Child's First Dance Class | Carrollton, GA",
+            description: "An age-by-age guide to picking a first dance class, ages 2 to 18. Filter by your child's age and see what each genre involves before you enroll.",
+            path: "/classes/choosing",
+          }),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Classes", path: "/classes/schedule" },
+            { name: "Choosing a Class", path: "/classes/choosing" },
+          ])
+        ]}
+      />
+
       <PageHero
         image={classeshero}
         label="Classes"

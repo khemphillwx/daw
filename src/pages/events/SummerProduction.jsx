@@ -3,6 +3,9 @@ import PageHero from "../../components/ui/PageHero";
 import { STUDIO } from "../../data/classes";
 import eventshero from "../../assets/DAW-events-hero.jpg";
 
+import Seo from "../../components/seo/Seo";
+import { webPageSchema, breadcrumbSchema } from "../../lib/seo";
+
 /*
  * Venue, format, and inclusions are evergreen. Dates and ticket pricing change
  * each season — confirm with the studio before each run.
@@ -24,6 +27,24 @@ const inclusions = [
 export default function SummerProduction() {
   return (
     <>
+      <Seo
+        title="Summer Recital Production | Dance Academy West, Carrollton GA"
+        description="Our full summer recital production — the performance every Progressive Program dancer works toward all season, staged for families across west Georgia."
+        path="/events/summer-production"
+        schema={[
+          webPageSchema({
+            name: "Summer Recital Production | Dance Academy West, Carrollton GA",
+            description: "Our full summer recital production — the performance every Progressive Program dancer works toward all season, staged for families across west Georgia.",
+            path: "/events/summer-production",
+          }),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Events", path: "/events" },
+            { name: "Summer Production", path: "/events/summer-production" },
+          ])
+        ]}
+      />
+
       <PageHero
         image={eventshero}
         label="Events"

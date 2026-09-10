@@ -1,5 +1,8 @@
 import { useState } from "react";
 import PageHero from "../components/ui/PageHero";
+import Seo from "../components/seo/Seo";
+import { breadcrumbSchema, canonicalFor } from "../lib/seo";
+import { NAP, ORGANIZATION_ID } from "../data/site";
 import { submitForm } from "../lib/submitForm";
 import { STUDIO } from "../data/classes";
 import contacthero from "../assets/DAW-contact-hero.jpg";
@@ -35,6 +38,28 @@ export default function Contact() {
 
   return (
     <>
+      <Seo
+        title="Contact Us | Dance Academy West, Carrollton GA"
+        description="Call, text or message Dance Academy West at 1004 Bankhead Highway, Carrollton, GA. Questions about classes, enrollment or scheduling — we reply in 1–2 days."
+        path="/contact"
+        schema={[
+          {
+            "@type": "ContactPage",
+            "@id": `${canonicalFor("/contact")}#webpage`,
+            url: canonicalFor("/contact"),
+            name: `Contact ${NAP.name}`,
+            description:
+              "Phone, text, email and street address for Dance Academy West in Carrollton, Georgia.",
+            about: { "@id": ORGANIZATION_ID },
+            inLanguage: "en-US",
+          },
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Contact", path: "/contact" },
+          ]),
+        ]}
+      />
+
       <PageHero
         image={contacthero}
         label="Get in Touch"
@@ -111,12 +136,11 @@ export default function Contact() {
               Follow Along
             </h3>
             <div className="flex flex-wrap gap-3">
+              {/* Only profiles that actually exist — see the note in Footer.jsx. */}
               {[
                 { label: 'Facebook',  href: 'https://www.facebook.com/125995280747922' },
                 { label: 'Instagram', href: 'https://www.instagram.com/dawdancers'       },
                 { label: 'Yelp',      href: 'https://www.yelp.com/biz/W5fBoAOBPbAQ6vRcgV-Muw' },
-                { label: 'TikTok',    href: '#'                                           },
-                { label: 'YouTube',   href: '#'                                           },
               ].map(({ label, href }) => (
                 <a
                   key={label}

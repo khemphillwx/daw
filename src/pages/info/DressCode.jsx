@@ -3,9 +3,30 @@ import PageHero from "../../components/ui/PageHero";
 import { dressCodes } from "../../data/classes";
 import classeshero from "../../assets/DAW-classes-hero.jpg";
 
+import Seo from "../../components/seo/Seo";
+import { webPageSchema, breadcrumbSchema } from "../../lib/seo";
+
 export default function DressCode() {
   return (
     <>
+      <Seo
+        title="Dance Dress Code by Class | Dance Academy West, Carrollton GA"
+        description="Exactly what to buy for each class — leotards, tights and shoes for ballet, tap, jazz, hip hop and acro — with links to the studio's shop for every genre."
+        path="/info/dress-code"
+        schema={[
+          webPageSchema({
+            name: "Dance Dress Code by Class | Dance Academy West, Carrollton GA",
+            description: "Exactly what to buy for each class — leotards, tights and shoes for ballet, tap, jazz, hip hop and acro — with links to the studio's shop for every genre.",
+            path: "/info/dress-code",
+          }),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Important Info", path: "/info/tuition" },
+            { name: "Dress Code", path: "/info/dress-code" },
+          ])
+        ]}
+      />
+
       <PageHero
         image={classeshero}
         label="Important Info"

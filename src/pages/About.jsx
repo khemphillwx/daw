@@ -4,6 +4,9 @@ import { STUDIO } from "../data/classes";
 import happyside from "../assets/DAW-happy-side.jpg";
 import hero from "../assets/DAW-about-hero.jpg";
 
+import Seo from "../components/seo/Seo";
+import { webPageSchema, breadcrumbSchema } from "../lib/seo";
+
 const staffImages = import.meta.glob("../assets/staff/*.webp", { eager: true });
 const staffImg = (filename) =>
   staffImages[`../assets/staff/${filename}`]?.default;
@@ -106,6 +109,23 @@ const values = [
 export default function About() {
   return (
     <>
+      <Seo
+        title="About Us — 25 Seasons of Dance in Carrollton, GA"
+        description="Founded in 2001, Dance Academy West is Carrollton's studio for acceptance, joy and growth. Meet the owner, faculty and guest instructors behind 25 seasons."
+        path="/about"
+        schema={[
+          webPageSchema({
+            name: "About Us — 25 Seasons of Dance in Carrollton, GA",
+            description: "Founded in 2001, Dance Academy West is Carrollton's studio for acceptance, joy and growth. Meet the owner, faculty and guest instructors behind 25 seasons.",
+            path: "/about",
+          }),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "About Us", path: "/about" },
+          ])
+        ]}
+      />
+
       <PageHero
         image={hero}
         label="Our Story"

@@ -18,6 +18,9 @@ import gallery15 from "../assets/gallery/DAW-gallery-15.jpg";
 import gallery16 from "../assets/gallery/DAW-gallery-16.jpg";
 import galleryhero from "../assets/DAW-gallery-hero.jpg";
 
+import Seo from "../components/seo/Seo";
+import { webPageSchema, breadcrumbSchema } from "../lib/seo";
+
 const photos = [
   { id: 1, src: gallery1, alt: "Dance Academy West" },
   { id: 2, src: gallery2, alt: "Dance Academy West" },
@@ -63,6 +66,23 @@ export default function Gallery() {
 
   return (
     <>
+      <Seo
+        title="Photo Gallery | Dance Academy West, Carrollton GA"
+        description="Recitals, classes, competitions and community performances — photos from 25 seasons at Dance Academy West in Carrollton, Georgia."
+        path="/gallery"
+        schema={[
+          webPageSchema({
+            name: "Photo Gallery | Dance Academy West, Carrollton GA",
+            description: "Recitals, classes, competitions and community performances — photos from 25 seasons at Dance Academy West in Carrollton, Georgia.",
+            path: "/gallery",
+          }),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Gallery", path: "/gallery" },
+          ])
+        ]}
+      />
+
       <PageHero
         image={galleryhero}
         label="Photos & Videos"
@@ -86,12 +106,13 @@ export default function Gallery() {
           <div className="glass-card rounded-3xl overflow-hidden aspect-video max-w-4xl mx-auto mb-20 flex items-center justify-center bg-slate-100/60">
             <div className="w-full h-full">
               <iframe
+                title="Dance Academy West studio video"
                 width="100%"
                 height="100%"
                 frameBorder="0"
                 loading="lazy"
                 src="https://www.canva.com/design/DAHGYQ1yOiw/czrAzPfutgDe3woxuh7s-g/watch?embed"
-                allowfullscreen="allowfullscreen"
+                allowFullScreen
                 allow="fullscreen"
               ></iframe>
             </div>

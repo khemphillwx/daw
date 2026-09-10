@@ -3,6 +3,9 @@ import PageHero from "../../components/ui/PageHero";
 import { STUDIO } from "../../data/classes";
 import programshero from "../../assets/DAW-programs-hero.png";
 
+import Seo from "../../components/seo/Seo";
+import { webPageSchema, breadcrumbSchema } from "../../lib/seo";
+
 const monthlyTuition = [
   { classes: "1 class", price: "$85", savings: "—" },
   { classes: "2 classes", price: "$145", savings: "$25" },
@@ -49,6 +52,24 @@ const billingNotes = [
 export default function Tuition() {
   return (
     <>
+      <Seo
+        title="Dance Class Tuition & Fees | Dance Academy West, Carrollton GA"
+        description="Tuition, registration and costume costs for dance classes at Dance Academy West in Carrollton, GA. The registration fee is charged once — not every season."
+        path="/info/tuition"
+        schema={[
+          webPageSchema({
+            name: "Dance Class Tuition & Fees | Dance Academy West, Carrollton GA",
+            description: "Tuition, registration and costume costs for dance classes at Dance Academy West in Carrollton, GA. The registration fee is charged once — not every season.",
+            path: "/info/tuition",
+          }),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Important Info", path: "/info/tuition" },
+            { name: "Tuition & Fees", path: "/info/tuition" },
+          ])
+        ]}
+      />
+
       <PageHero
         image={programshero}
         label="Important Info"

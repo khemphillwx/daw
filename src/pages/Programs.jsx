@@ -3,6 +3,9 @@ import PageHero from "../components/ui/PageHero";
 import { STUDIO } from "../data/classes";
 import programshero from "../assets/DAW-programs-hero.png";
 
+import Seo from "../components/seo/Seo";
+import { webPageSchema, breadcrumbSchema } from "../lib/seo";
+
 const progressivePerks = [
   "Ages 3–18",
   "12-month year-round program",
@@ -25,6 +28,23 @@ const details = [
 export default function Programs() {
   return (
     <>
+      <Seo
+        title="Progressive Program — Year-Round Dance Training in Carrollton"
+        description="Our 12-month Progressive Program builds skills week by week and ends in a full summer recital. One registration fee, paid once, for dancers ages 3–18."
+        path="/programs"
+        schema={[
+          webPageSchema({
+            name: "Progressive Program — Year-Round Dance Training in Carrollton",
+            description: "Our 12-month Progressive Program builds skills week by week and ends in a full summer recital. One registration fee, paid once, for dancers ages 3–18.",
+            path: "/programs",
+          }),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Progressive Program", path: "/programs" },
+          ])
+        ]}
+      />
+
       <PageHero
         image={programshero}
         label="Our Program"

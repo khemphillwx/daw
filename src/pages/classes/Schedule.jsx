@@ -4,9 +4,30 @@ import ClassListEmbed from "../../components/ui/ClassListEmbed";
 import { STUDIO } from "../../data/classes";
 import classeshero from "../../assets/DAW-classes-hero.jpg";
 
+import Seo from "../../components/seo/Seo";
+import { webPageSchema, breadcrumbSchema } from "../../lib/seo";
+
 export default function Schedule() {
   return (
     <>
+      <Seo
+        title="Dance Class Schedule | Dance Academy West, Carrollton GA"
+        description="This season's dance class schedule for Dance Academy West in Carrollton, GA — times, ages and current openings across ballet, tap, jazz, hip hop, acro and more."
+        path="/classes/schedule"
+        schema={[
+          webPageSchema({
+            name: "Dance Class Schedule | Dance Academy West, Carrollton GA",
+            description: "This season's dance class schedule for Dance Academy West in Carrollton, GA — times, ages and current openings across ballet, tap, jazz, hip hop, acro and more.",
+            path: "/classes/schedule",
+          }),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Classes", path: "/classes/schedule" },
+            { name: "Class Schedule", path: "/classes/schedule" },
+          ])
+        ]}
+      />
+
       <PageHero
         image={classeshero}
         label="Classes"

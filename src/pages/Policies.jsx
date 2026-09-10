@@ -2,6 +2,9 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import PageHero from '../components/ui/PageHero'
 
+import Seo from "../components/seo/Seo"
+import { webPageSchema, breadcrumbSchema } from "../lib/seo"
+
 const sections = [
   {
     id: 'enrollment',
@@ -136,6 +139,24 @@ function PolicySection({ section }) {
 export default function Policies() {
   return (
     <>
+      <Seo
+        title="Studio Policies | Dance Academy West, Carrollton GA"
+        description="Attendance, tuition, withdrawal and conduct policies for families enrolled at Dance Academy West in Carrollton, Georgia."
+        path="/info/policies"
+        schema={[
+          webPageSchema({
+            name: "Studio Policies | Dance Academy West, Carrollton GA",
+            description: "Attendance, tuition, withdrawal and conduct policies for families enrolled at Dance Academy West in Carrollton, Georgia.",
+            path: "/info/policies",
+          }),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Important Info", path: "/info/tuition" },
+            { name: "Policies", path: "/info/policies" },
+          ])
+        ]}
+      />
+
       <PageHero
         label="Studio Policies"
         heading="Policies & Guidelines"

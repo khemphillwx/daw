@@ -2,14 +2,31 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/logos/MainLogo1.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dance Academy West | We Do Things Differently Here</title>
-    <meta name="description" content="Dance Academy West offers dance lessons for children ages 2–18 in Carrollton, GA. Ballet, hip hop, tap, jazz, Broadway, and more. Schedule a free trial class today." />
-    <meta name="keywords" content="dance lessons Carrollton GA, kids dance classes, ballet, hip hop, tap, jazz, dance academy" />
+    <link rel="icon" type="image/png" href="/logos/MainLogo1.png" />
+    <link rel="apple-touch-icon" href="/logos/MainLogo1.png" />
+    <meta name="theme-color" content="#2bf2f4" />
+
+    <!--
+      Placeholder title and description. Every route declares its own through
+      the <Seo> component, and scripts/prerender.mjs strips these two lines
+      before injecting the real ones into each generated page. They exist only
+      so `vite dev` and the un-prerendered shell are not nameless.
+    -->
+    <title>Dance Academy West | Dance Classes in Carrollton, GA</title>
+    <meta name="description" content="Dance classes for ages 2–18 in Carrollton, Georgia." />
+
+    <!--
+      Google Fonts is a third-party origin on the critical path. preconnect
+      opens the TCP and TLS handshakes early so the stylesheet request does not
+      pay for them, which is worth roughly a round trip of LCP on mobile.
+    -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div id="root"></div>
